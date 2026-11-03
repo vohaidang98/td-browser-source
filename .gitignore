@@ -1,0 +1,16 @@
+﻿# Thư viện, bản build, trình duyệt lõi và các bản phát hành cũ (rất nặng, không đưa vào git)
+node_modules/
+dist/
+core/
+release-*/
+*.exe
+*.blockmap
+*.log
+
+# Bí mật: khoá Google OAuth, biến môi trường, mã kích hoạt
+client_secret*.json
+*.env
+.env*
+*.key
+*.pem
+MA_KICH_HOAT*

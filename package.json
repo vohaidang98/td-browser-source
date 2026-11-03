@@ -1,0 +1,106 @@
+{
+  "name": "td-browser",
+  "version": "1.4.0",
+  "description": "TD Browser - Antidetect Manager",
+  "main": "main-entry.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder --win --x64"
+  },
+  "author": "TD",
+  "license": "ISC",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "1.32.1",
+    "@supabase/supabase-js": "^2.39.3",
+    "adm-zip": "^0.5.10",
+    "axios": "^1.6.7",
+    "electron-updater": "^6.1.8",
+    "https-proxy-agent": "^7.0.4",
+    "playwright-core": "1.64.0",
+    "proxy-chain": "^2.4.0",
+    "ws": "^8.16.0",
+    "zod": "4.6.7"
+  },
+  "devDependencies": {
+    "electron": "^44.3.0",
+    "electron-builder": "^24.13.3"
+  },
+  "build": {
+    "appId": "com.tdbrowser.antidetect",
+    "productName": "TD Browser",
+    "directories": {
+      "output": "dist"
+    },
+    "win": {
+      "target": [
+        "nsis"
+      ],
+      "artifactName": "TD-Browser-Setup-${version}.${ext}"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true
+    },
+    "publish": null,
+    "asar": true,
+    "files": [
+      "main.js",
+      "cloud-profiles.js",
+      "preload.js",
+      "index.html",
+      "package.json",
+      "layout.css",
+      "ui-layout.js",
+      "admin-management.js",
+      "admin-management-ui.js",
+      "profile-catalog-sync.js",
+      "profile-catalog-ui.js",
+      "account-security.js",
+      "account-security-ui.js",
+      "workspace-ui.css",
+      "workspace-ui.js",
+      "automation-service.js",
+      "automation-http.js",
+      "automation-ui.js",
+      "automation-ui.css",
+      "proxy-network.js",
+      "proxy-ui.js",
+      "proxy-library.js",
+      "proxy-library-ui.js",
+      "youtube-upload.js",
+      "youtube-upload-ui.js",
+      "youtube-google-api.js",
+      "youtube-channel-cloud.js",
+      "app-lifecycle.js",
+      "app-lifecycle-ui.js",
+      "profile-local-snapshot.js",
+      "profile-admin-control.js",
+      "main-entry.js",
+      "main-local.js",
+      "lan-update.js",
+      "licensing.js",
+      "license-preload.js"
+    ],
+    "extraResources": [
+      {
+        "from": "core",
+        "to": "core",
+        "filter": [
+          "**/*",
+          "!**/interactive_ui_tests.exe",
+          "!**/setup.exe"
+        ]
+      },
+      {
+        "from": "automation-tools",
+        "to": "automation-tools",
+        "filter": [
+          "**/*"
+        ]
+      }
+    ],
+    "npmRebuild": false
+  }
+}
